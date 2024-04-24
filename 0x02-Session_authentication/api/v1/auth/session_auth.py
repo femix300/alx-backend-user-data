@@ -9,7 +9,7 @@ class SessionAuth(Auth):
     user_id_by_session_id = {}
 
     def create_session(self, user_id: str = None) -> str:
-        '''Creates a session id
+        '''Creates a Session ID for a user_id
         Its uses this sesssion_id as the key and the user_id as the value
         '''
         if not user_id:
@@ -20,3 +20,11 @@ class SessionAuth(Auth):
         self.user_id_by_session_id[session_id] = user_id
 
         return session_id
+
+    def user_id_for_session_id(self, session_id: str = None) -> str:
+        '''returns a User ID based on a Session ID'''
+        if not session_id:
+            return None
+        if not isinstance(session_id, str):
+            return None
+        return self.user_id_by_session_id.get(f'{session_id}')
