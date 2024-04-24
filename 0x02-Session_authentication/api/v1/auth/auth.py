@@ -10,8 +10,6 @@ class Auth:
 
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         '''checks if path is in excluded paths
-        Returns true if `path` is None
-        Returns true if `excluded_paths` is None or empty
         '''
         if path is None:
             return True
@@ -31,4 +29,5 @@ class Auth:
             return request.headers['Authorization']
 
     def current_user(self, request=None) -> User:
+        '''current user'''
         return None
