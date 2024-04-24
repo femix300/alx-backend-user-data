@@ -4,7 +4,6 @@
 import hashlib
 from models.base import Base
 
-
 class User(Base):
     """ User class
     """
